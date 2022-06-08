@@ -50,9 +50,9 @@ public:
   // O = M * I
   void largeMV(const float *mat, const float *input, float *output, int num_input, int num_output);
   void largeMM(const float *mat, const float *input, float *output, int num_input, int num_output, int num_matrix);
-  void convLowering(const std::vector<std::vector<std::vector<std::vector<float>>>> &cnn_weights,
-                    std::vector<std::vector<float>> &new_weights,
-                    const std::vector<std::vector<std::vector<float>>> &inputs,
-                    std::vector<std::vector<float>> &new_inputs);
+  void convLowering(const std::vector<std::vector<std::vector<std::vector<float> > > > &cnn_weights,
+                    std::vector<std::vector<float> > &new_weights,
+                    const std::vector<std::vector<std::vector<float> > > &inputs,
+                    std::vector<std::vector<float> > &new_inputs);
 };
 #endif

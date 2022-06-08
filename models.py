@@ -19,6 +19,11 @@ class MLP(Network):
   def __init__(self, net_path, args):
     super(MLP, self).__init__(args)
 
+    self.lib.getCaffeNet.restype = ctypes.c_void_p
+    self.lib.getCaffeNet.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int]
+    self.lib.inferenceCaffe.argtypes = [ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p]
+    self.lib.delCaffeNet.argtypes = [ctypes.c_void_p]
+
     self.net = self.lib.getCaffeNet(ctypes.c_char_p(net_path.encode("utf-8")), self.m_size, self.v_size)
 
   def __del__(self):
